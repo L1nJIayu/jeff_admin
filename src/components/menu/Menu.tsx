@@ -1,16 +1,51 @@
-import type React from "react";
-import { useNavigate } from "react-router";
+import type React from "react"
+import { useNavigate } from "react-router"
+import { Menu } from 'antd'
+import type { MenuProps } from 'antd'
 
-const Menu: React.FC = () => {
-  const navigate = useNavigate()
-  const jump = (routerName: string) => {
-    navigate(routerName)
+type MenuItem = Required<MenuProps>['items'][number]
+
+const items: MenuItem[] = [
+  {
+    label: '站点地图',
+    key: 'StationMap'
+  },
+  {
+    label: '系统管理',
+    key: 'SystemManage',
+    children: [
+      {
+        label: '用户管理',
+        key: 'UserManage'
+      },
+      {
+        label: '角色管理',
+        key: 'RoleManage'
+      },
+    ]
   }
-  return (<>
-    <div onClick={() => jump('/home')}>首页</div>
-    <div onClick={() => jump('/user')}>用户列表</div>
-    <div onClick={() => jump('/role')}>角色列表</div>
-  </>)
+];
+
+const TheMenu: React.FC = () => {
+
+  const navigate = useNavigate()
+
+  const onClick: MenuProps['onClick'] = (e) => {
+    console.log('click ', e)
+    const { key } = e
+    navigate(key)
+  };
+  return (
+    <Menu
+      onClick={onClick}
+      style={{ width: 220 }}
+      defaultSelectedKeys={['1']}
+      defaultOpenKeys={['sub1']}
+      mode="inline"
+      items={items}
+    />
+  )
 }
 
-export default Menu
+
+export default TheMenu

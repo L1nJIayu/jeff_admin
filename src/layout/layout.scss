@@ -15,12 +15,12 @@ $header_height: 60px;
     height: 100%;
     .mp_header {
       height: $header_height;
-      background-color: #000;
+      background-color: #292929;
     }
     .mp_content {
       width: 100%;
       height: calc(100% - $header_height);
-      background-color: #CCC;
+      background-color: #EFEFEF;
     }
   }
 }

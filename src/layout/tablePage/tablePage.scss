@@ -1,0 +1,20 @@
+.tablePage {
+  box-sizing: border-box;
+  padding: 16px;
+  .tp_title {
+    background-color: #FFF;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .tp_content {
+    background-color: #FFF;
+    padding: 24px;
+    margin-top: 12px;
+    .tp_actions {
+      display: flex;
+      flex-direction: row-reverse;
+      padding-bottom: 12px;
+    }
+  }
+}

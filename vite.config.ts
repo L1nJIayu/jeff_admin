@@ -8,4 +8,13 @@ export default defineConfig({
     react(),
     UnoCSS()
   ],
+  server: {
+    port: 11188,
+    proxy: {
+      '/dev': {
+        target: 'http://ubattery.cn:24001',
+        rewrite: (path) => path.replace(/\/dev/, '/cickpx')
+      }
+    }
+  }
 })

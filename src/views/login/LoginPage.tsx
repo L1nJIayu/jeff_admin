@@ -4,14 +4,21 @@ import type { FormProps } from 'antd'
 import { loginApi } from '../../api/modules/admin'
 import './login.scss'
 import { useNavigate } from 'react-router'
+import ValidateCodeImg from './ValidateCodeImg'
 
 type FieldType = {
   username: string
   password: string
+  code: string
 }
 
 
 const LoginPage: React.FC = () => {
+
+  const [initialValues] = useState({
+    username: import.meta.env.VITE_LOGIN_USERNAME,
+    password: import.meta.env.VITE_LOGIN_PASSWORD
+  })
 
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -24,7 +31,7 @@ const LoginPage: React.FC = () => {
       if(res.data) {
         const { token } = res.data
         sessionStorage.setItem('Authorization', token)
-        navigate('/home')
+        navigate('/StationMap')
       }
     } catch (e) {
       console.error(e)
@@ -40,6 +47,7 @@ const LoginPage: React.FC = () => {
         <div className="login_form_box">
           <Form
             onFinish={onFinish}
+            initialValues={initialValues}
             autoComplete="off"
           >
             <Form.Item
@@ -53,6 +61,12 @@ const LoginPage: React.FC = () => {
               rules={[{ required: true, message: '密码不能为空' }]}
             >
               <Input.Password placeholder="密码" />
+            </Form.Item>
+            <Form.Item
+              name="code"
+              rules={[{ required: true, message: '用户名不能为空' }]}
+            >
+              <Input placeholder="验证码" suffix={ <ValidateCodeImg /> } />
             </Form.Item>
             <Form.Item>
               <Button

@@ -1,7 +1,8 @@
 import Axios from 'axios'
+import { BASE_URL } from './config'
 
 const axiosInstance = Axios.create({
-  baseURL: '/dev'
+  baseURL: BASE_URL
 })
 
 export default axiosInstance

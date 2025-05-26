@@ -11,15 +11,15 @@ const routes: RouteObject[] = [
     Component: App,
     children: [
       {
-        path: 'home',
+        path: 'StationMap',
         Component: HomePage
       },
       {
-        path: 'role',
+        path: 'RoleManage',
         Component: RoleTable
       },
       {
-        path: 'user',
+        path: 'UserManage',
         Component: UserTable
       }
     ]

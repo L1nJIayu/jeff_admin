@@ -1,5 +1,7 @@
 // import axiosInstance from "../../axios"
 
+import axiosInstance from "../../axios"
+
 export type UserItem = {
   id: number
   username: string
@@ -31,4 +33,9 @@ export function userTableDataApi(params: {
       })
     })
   })
+}
+
+
+export function deleteUserApi(id: number) {
+  return axiosInstance.delete(`${id}`)
 }

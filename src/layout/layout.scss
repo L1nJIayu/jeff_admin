@@ -1,4 +1,4 @@
-$header_height: 60px;
+$header_height: 50px;
 
 .mainPage {
   width: 100%;
@@ -16,6 +16,16 @@ $header_height: 60px;
     .mp_header {
       height: $header_height;
       background-color: #292929;
+      .header {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header_right {
+          padding-right: 12px;
+        }
+      }
     }
     .mp_content {
       width: 100%;

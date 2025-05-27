@@ -11,7 +11,6 @@ const HomePage: React.FC = () => {
   return (
     <>
       <div>首页</div>
-      <div onClick={logout}>退出登录</div>
     </>
   )
 }

@@ -11,6 +11,20 @@ const items: MenuItem[] = [
     key: 'StationMap'
   },
   {
+    label: '资源管理',
+    key: 'ResourceManage',
+    children: [
+      {
+        label: '运营商管理',
+        key: 'OperatorTable'
+      },
+      {
+        label: '站点管理',
+        key: 'RoleManage'
+      },
+    ]
+  },
+  {
     label: '系统管理',
     key: 'SystemManage',
     children: [

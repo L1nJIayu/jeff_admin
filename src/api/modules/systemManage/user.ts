@@ -1,6 +1,6 @@
 // import axiosInstance from "../../axios"
 
-import axiosInstance from "../../axios"
+import axiosInstance from "../../instance/showXin"
 
 export type UserItem = {
   id: number

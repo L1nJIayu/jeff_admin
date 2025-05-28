@@ -11,9 +11,13 @@ export default defineConfig({
   server: {
     port: 11188,
     proxy: {
-      '/dev': {
+      '/cickpx': {
         target: 'http://ubattery.cn:24001',
-        rewrite: (path) => path.replace(/\/dev/, '/cickpx')
+        // rewrite: (path) => path.replace(/\/cickpx/, '')
+      },
+      '/cickp_backend': {
+        target: 'http://ubattery.cn:24001',
+        // rewrite: (path) => path.replace(/\/cickp_backend/, '')
       }
     }
   }

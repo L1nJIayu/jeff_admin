@@ -4,6 +4,7 @@ import App from '../App'
 import HomePage from '../views/home/HomePage'
 import RoleTable from '../views/systemManage/roleManage/RoleTable'
 import UserTable from '../views/systemManage/userManage/UserTable'
+import OperatorTable from '../views/resourceManage/operator/OperatorTable'
 
 const routes: RouteObject[] = [
   {
@@ -21,6 +22,10 @@ const routes: RouteObject[] = [
       {
         path: 'UserManage',
         Component: UserTable
+      },
+      {
+        path: 'OperatorTable',
+        Component: OperatorTable
       }
     ]
   },

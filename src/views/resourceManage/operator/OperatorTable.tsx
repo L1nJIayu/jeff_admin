@@ -11,10 +11,6 @@ const TableComp = () => {
 
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'id'
-    },
-    {
       title: '运营商ID',
       dataIndex: 'operatorId'
     },
@@ -44,6 +40,7 @@ const TableComp = () => {
     },
   ]
   const [ dataSource, setDataSource ] = useState([])
+  const [ loading, setLoading ] = useState(false)
 
   const getData = async () => {
     try {
@@ -51,6 +48,7 @@ const TableComp = () => {
         pageNum: 1,
         pageSize: 10
       }
+      setLoading(true)
       const res = await getTableDataApi(params)
       console.log('res',res)
       if(res.data) {
@@ -59,18 +57,22 @@ const TableComp = () => {
       }
     } catch (e) {
       console.error(e)
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
     <Table
       columns={columns}
+      loading={loading}
+      bordered
       dataSource={dataSource}></Table>
   )
 }
 
-const OperatorTable = () => {
 
+const OperatorTable = () => {
 
   return (
     <TablePage

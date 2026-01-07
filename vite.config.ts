@@ -8,6 +8,13 @@ export default defineConfig({
     react(),
     UnoCSS()
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@api': '/src/api',
+      '@utils': '/src/utils'
+    }
+  },
   server: {
     port: 11188,
     proxy: {

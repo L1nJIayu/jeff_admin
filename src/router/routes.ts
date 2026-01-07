@@ -1,5 +1,5 @@
 import type { RouteObject } from 'react-router'
-import LoginPage from '../views/login/LoginPage'
+import LoginPage from '../views/login'
 import App from '../App'
 import HomePage from '../views/home/HomePage'
 import RoleTable from '../views/systemManage/roleManage/RoleTable'

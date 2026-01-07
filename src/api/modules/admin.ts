@@ -1,9 +1,10 @@
 import axiosInstance from "../instance/showXin"
 import { BASE_URL } from '../config'
+import LoginURI from '@api/uri/login'
 
 export function getValidateCodeImgURI() {
   const t = new Date().getTime()
-  return `${BASE_URL.SHOW_XIN}/ui/unientry/getCode?t=${t}`
+  return `${BASE_URL.SHOW_XIN}/${LoginURI.loginCode}?t=${t}`
 }
 
 type LoginApiParams = {
@@ -19,5 +20,5 @@ type LoginApiResData = {
 }
 export function loginApi(params: LoginApiParams) {
   const { code } = params
-  return axiosInstance.post<LoginApiResData>(`/ui/unientry/login?code=${code}`, params)
+  return axiosInstance.post<LoginApiResData>(`${LoginURI.login}?code=${code}`, params)
 }

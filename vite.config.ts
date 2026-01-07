@@ -12,7 +12,13 @@ export default defineConfig({
     alias: {
       '@': '/src',
       '@api': '/src/api',
-      '@utils': '/src/utils'
+      '@utils': '/src/utils',
+      '@components': '/src/components',
+      '@views': '/src/views',
+      '@styles': '/src/styles',
+      '@assets': '/src/assets',
+      "@constants": '/src/constants',
+      '@routes': '/src/router',
     }
   },
   server: {

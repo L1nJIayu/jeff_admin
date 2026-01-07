@@ -1,3 +1,3 @@
+import { AUTH } from '@constants/localStorage'
 
-
-export const setToken = (token: string) => localStorage.setItem('JEFF_ADMIN_AUTH', token)
+export const setToken = (token: string) => localStorage.setItem(AUTH, token)

@@ -1,10 +1,10 @@
 import type { RouteObject } from 'react-router'
-import LoginPage from '../views/login'
-import App from '../App'
-import HomePage from '../views/home/HomePage'
-import RoleTable from '../views/systemManage/roleManage/RoleTable'
-import UserTable from '../views/systemManage/userManage/UserTable'
-import OperatorTable from '../views/resourceManage/operator/OperatorTable'
+import LoginPage from '@views/login'
+import App from '@/App'
+import HomePage from '@views/home/HomePage'
+import RoleTable from '@views/systemManage/roleManage/RoleTable'
+import UserTable from '@views/systemManage/userManage/UserTable'
+import OperatorTable from '@views/resourceManage/operator/OperatorTable'
 
 const routes: RouteObject[] = [
   {

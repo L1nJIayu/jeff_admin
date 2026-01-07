@@ -23,8 +23,7 @@ const LoginPage: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
-  const onFinish: FormProps<FieldType>['onFinish'] = async (values) =>{
-    console.log('onFinish', values)
+  const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
     try {
       setLoading(true)
       const res = await loginApi(values)

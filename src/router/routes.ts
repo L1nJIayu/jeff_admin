@@ -1,39 +1,10 @@
 import type { RouteObject } from 'react-router'
-import LoginPage from '@views/login'
-import App from '@/App'
-import HomePage from '@views/home/HomePage'
-import RoleTable from '@views/systemManage/roleManage/RoleTable'
-import UserTable from '@views/systemManage/userManage/UserTable'
-import OperatorTable from '@views/resourceManage/operator/OperatorTable'
+import appRoutes from './routes.app'
+import authRoutes from './routes.auth'
 
 const routes: RouteObject[] = [
-  {
-    path: '/',
-    Component: App,
-    children: [
-      {
-        path: 'StationMap',
-        Component: HomePage
-      },
-      {
-        path: 'RoleManage',
-        Component: RoleTable
-      },
-      {
-        path: 'UserManage',
-        Component: UserTable
-      },
-      {
-        path: 'OperatorTable',
-        Component: OperatorTable
-      }
-    ]
-  },
-
-  {
-    path: '/login',
-    Component: LoginPage
-  }
+  ...appRoutes,
+  ...authRoutes
 ]
 
 export default routes

@@ -34,7 +34,7 @@ const LoginForm: React.FC = () => {
       if(res.data) {
         const { token } = res.data
         setToken(token)
-        navigate('/StationMap')
+        navigate('/station-map')
       }
     } catch (e) {
       console.error(e)

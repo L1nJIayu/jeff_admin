@@ -1,8 +1,8 @@
-import type { RouteObject } from 'react-router'
+import type { AppRouteObject } from './types'
 import appRoutes from './routes.app'
 import authRoutes from './routes.auth'
 
-const routes: RouteObject[] = [
+const routes: AppRouteObject[] = [
   ...appRoutes,
   ...authRoutes
 ]

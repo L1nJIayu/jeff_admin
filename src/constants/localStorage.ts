@@ -1,2 +1,3 @@
 
 export const AUTH = 'JEFF_ADMIN_AUTH'
+export const PERMISSION = 'JEFF_ADMIN_PERMISSION'

@@ -1,13 +1,16 @@
-import type { RouteObject } from 'react-router'
 import { lazy } from 'react'
+import type { AppRouteObject } from './types'
 
 
 const LoginPage = lazy(() => import('@views/login'))
 
-const routes: RouteObject[] = [
+const routes: AppRouteObject[] = [
   {
     path: '/login',
-    Component: LoginPage
+    Component: LoginPage,
+    handle: {
+      title: '登录'
+    }
   }
 ]
 

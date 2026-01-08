@@ -8,7 +8,7 @@ type MenuItem = Required<MenuProps>['items'][number]
 const items: MenuItem[] = [
   {
     label: '站点地图',
-    key: 'StationMap'
+    key: 'station-map'
   },
   {
     label: '资源管理',
@@ -16,7 +16,7 @@ const items: MenuItem[] = [
     children: [
       {
         label: '运营商管理',
-        key: 'OperatorTable'
+        key: 'operator-manage'
       },
       {
         label: '站点管理',
@@ -30,11 +30,11 @@ const items: MenuItem[] = [
     children: [
       {
         label: '用户管理',
-        key: 'UserManage'
+        key: 'user-manage'
       },
       {
         label: '角色管理',
-        key: 'RoleManage'
+        key: 'role-manage'
       },
     ]
   }

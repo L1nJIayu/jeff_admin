@@ -10,11 +10,11 @@ const Header = () => {
   }
 
   return (
-    <div className="header">
+    <div className="w-full h-full flex justify-between items-center">
       <div className="header_left"></div>
-      <div className="header_right">
+      <div className="pr-3">
         <LogoutOutlined
-          className="text-2xl text-white cursor-pointer"
+          className="text-1xl text-white cursor-pointer"
           onClick={logout}
         />
       </div>

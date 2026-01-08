@@ -2,6 +2,7 @@ import type { FC } from "react"
 import { Outlet } from 'react-router'
 import Menu from "@components/menu/Menu"
 import Header from './Header'
+import TabBar from '@components/tabBar/TabBar'
 
 const HEADER_H = 40     // header高度
 const SIDEBAR_W = 220   // 侧边栏宽度
@@ -20,8 +21,11 @@ const Layout: FC = () => {
           style={{ height: `${HEADER_H}px` }}>
           <Header />
         </header>
+        <div>
+        </div>
         <main className="flex-1 bg-[#EFEFEF]">
-          <Outlet />
+          <TabBar></TabBar>
+          <Outlet></Outlet>
         </main>
       </div>
     </div>

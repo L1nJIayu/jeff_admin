@@ -123,6 +123,7 @@ const UserTable: React.FC = () => {
     <TablePage
       title="用户列表"
       actions={Actions}>
+        <input />
       <Table<UserItem> columns={columns} dataSource={tableData} />
       <UserFormDrawer
         id={actionId}

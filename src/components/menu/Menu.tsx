@@ -2,10 +2,17 @@ import type React from "react"
 import { useNavigate } from "react-router"
 import { Menu } from 'antd'
 import type { MenuProps } from 'antd'
+import { useDispatch } from 'react-redux'
+import { addTabItem } from '@store/slice/tabBarSlice'
 
-type MenuItem = Required<MenuProps>['items'][number]
+// type MenuItem = Required<MenuProps>['items'][number]
+type MenuItem = {
+  label: string
+  key: string
+  children?: MenuItem[]
+}
 
-const items: MenuItem[] = [
+const menuList: MenuItem[] = [
   {
     label: '站点地图',
     key: 'station-map'
@@ -17,10 +24,6 @@ const items: MenuItem[] = [
       {
         label: '运营商管理',
         key: 'operator-manage'
-      },
-      {
-        label: '站点管理',
-        key: 'RoleManage'
       },
     ]
   },
@@ -38,15 +41,41 @@ const items: MenuItem[] = [
       },
     ]
   }
-];
+]
+
+const menuListKeyLabelMap = buildKeyLabelMap(menuList)
+function buildKeyLabelMap(
+  menuList: MenuItem[],
+  map: Record<string, string> = {}
+) {
+
+  menuList.forEach(menu => {
+    if(!menu) return
+    
+    map[menu.key] = String(menu.label)
+
+    if(menu.children && menu.children.length) {
+      return buildKeyLabelMap(menu.children, map)
+    }
+
+  })
+
+
+  return map
+}
 
 const TheMenu: React.FC = () => {
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
 
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e)
     const { key } = e
+    dispatch(addTabItem({
+      key,
+      label: menuListKeyLabelMap[key] || key,
+    }))
+    
     navigate(key)
   };
   return (
@@ -56,7 +85,7 @@ const TheMenu: React.FC = () => {
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       mode="inline"
-      items={items}
+      items={menuList}
     />
   )
 }

@@ -19,6 +19,7 @@ export default defineConfig({
       '@assets': '/src/assets',
       "@constants": '/src/constants',
       '@routes': '/src/router',
+      '@store': '/src/store',
     }
   },
   server: {

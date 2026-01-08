@@ -1,13 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 import tabBar, { tabBarListener } from './slice/tabBarSlice'
+import menu, { menuListener } from './slice/menuSlice'
 
 const store = configureStore({
   reducer: {
+    menu,
     tabBar
   },
   middleware: (getDefaultMiddleware) => 
-
-    getDefaultMiddleware().prepend(tabBarListener.middleware)
+  getDefaultMiddleware().prepend(
+    tabBarListener.middleware,
+    menuListener.middleware
+  )
 })
 
 

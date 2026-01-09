@@ -13,7 +13,7 @@ const ValidateCodeImg = () => {
 
   return (
     <Image
-      className="cursor-pointer"
+      className="cursor-pointer max-w-[100px] max-h-[30px]"
       onClick={updateCode}
       preview={false}
       src={src}

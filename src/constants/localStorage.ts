@@ -4,6 +4,7 @@ export const AUTH = `${PREFIX}AUTH`
 export const PERMISSION = `${PREFIX}PERMISSION`
 
 export const MENU_ACTIVE_NAME = `${PREFIX}MENU_ACTIVE_NAME`
+export const MENU_OPEN_KEYS = `${PREFIX}MENU_OPEN_KEYS`
 
 export const TAB_LIST = `${PREFIX}TAB_LIST`
 export const TAB_ACTIVE_KEY = `${PREFIX}TAB_ACTIVE_KEY`

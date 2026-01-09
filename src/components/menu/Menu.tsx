@@ -5,7 +5,7 @@ import type { MenuProps } from 'antd'
 import { useDispatch } from 'react-redux'
 import { addTabItem } from '@store/slice/tabBarSlice'
 import { useSelector } from 'react-redux'
-import { menuSelector, changeActiveName } from '@store/slice/menuSlice'
+import { menuSelector, changeActiveName, changeOpenKey } from '@store/slice/menuSlice'
 
 // type MenuItem = Required<MenuProps>['items'][number]
 type MenuItem = {
@@ -68,7 +68,7 @@ function buildKeyLabelMap(
 
 const TheMenu: React.FC = () => {
   const dispatch = useDispatch()
-  const { activeName } = useSelector(menuSelector)
+  const { activeName, openKeys } = useSelector(menuSelector)
 
   const navigate = useNavigate()
 
@@ -81,15 +81,21 @@ const TheMenu: React.FC = () => {
     dispatch(changeActiveName(key))
     
     navigate(key)
-  };
+  }
+  const onOpenChange: MenuProps['onOpenChange'] = (openKeys: string[]) => {
+    console.log(openKeys)
+    dispatch(changeOpenKey(openKeys))
+  }
+
   return (
     <Menu
-      onClick={onClick}
-      style={{ width: 220 }}
-      defaultSelectedKeys={[activeName]}
-      defaultOpenKeys={[activeName]}
       mode="inline"
       items={menuList}
+      defaultSelectedKeys={[activeName]}
+      defaultOpenKeys={openKeys}
+      style={{ width: 220 }}
+      onClick={ onClick }
+      onOpenChange={ onOpenChange }
     />
   )
 }

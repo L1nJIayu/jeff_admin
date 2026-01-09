@@ -11,10 +11,12 @@ const Header = () => {
 
   return (
     <div className="w-full h-full flex justify-between items-center">
-      <div className="header_left"></div>
+      <div className="header_left">
+        <div className="">充电桩大数据平台</div>
+      </div>
       <div className="pr-3">
         <LogoutOutlined
-          className="text-1xl text-white cursor-pointer"
+          className="text-1xl cursor-pointer"
           onClick={logout}
         />
       </div>

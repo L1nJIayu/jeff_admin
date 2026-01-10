@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
           <Info />
         </div>
         <div className="bg-[#FFF] p-8">
-          <div className="text-[1.3rem] font-semibold">充电桩大数据平台</div>
+          <div className="text-[1.3rem] font-semibold">Dev Playground</div>
           <div className="mt-4 pt-9 pb-3">
             <LoginForm />
           </div>

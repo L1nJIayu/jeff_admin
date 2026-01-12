@@ -17,7 +17,13 @@ const routes: AppRouteObject[] = [
     children: [
       { path: 'station-map', Component: HomePage },
       { path: 'role-manage', Component: RoleTable },
-      { path: 'user-manage', Component: UserTable },
+      {
+        path: 'user-manage',
+        Component: UserTable,
+        meta: {
+          keepAlive: true
+        }
+      },
       { path: 'operator-manage', Component: OperatorTable },
     ]
   }

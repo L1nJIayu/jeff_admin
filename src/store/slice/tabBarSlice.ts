@@ -42,32 +42,12 @@ export const tabBarSlice = createSlice({
 
     },
     removeTabItem: (state, action: PayloadAction<string>) => {
-      if(state.list.length === 1) {
-        state.activeKey = ''
-        state.list = []
-        return
-      }
-      
       const keyToRemove = action.payload
-
       const targetIndex = state.list.findIndex(item => item.key === keyToRemove)
-      
-      if(targetIndex !== -1) {
-
-        const nextActiveKey =
-          targetIndex === state.list.length - 1
-            ? state.list[targetIndex - 1].key
-            : state.list[targetIndex + 1].key
-
-        state.activeKey = nextActiveKey
-
-        state.list.splice(targetIndex, 1)
-      }
-
+      state.list.splice(targetIndex, 1)
     },
     changeActiveKey: (state, action: PayloadAction<string>) => {
       if (state.activeKey === action.payload) return
-
       state.activeKey = action.payload
     }
   }

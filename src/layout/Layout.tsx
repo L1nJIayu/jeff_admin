@@ -24,7 +24,9 @@ const Layout: FC = () => {
           <Menu />
         </aside>
         <main className="bg-[#f0f2f5]">
-          <TabBar></TabBar>
+          <div className="bg-[#FFF]">
+            <TabBar></TabBar>
+          </div>
           <Outlet></Outlet>
         </main>
       </div>

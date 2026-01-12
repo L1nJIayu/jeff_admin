@@ -8,13 +8,12 @@ import { userTableDataApi, deleteUserApi } from '../../../api/modules/systemMana
 import type { UserItem } from '../../../api/modules/systemManage/user'
 import { UserStatus, displayName_userStatus } from '../../dictionary/index'
 import UserFormDrawer from "./UserFormDrawer"
+import UserTableSearch from './UserTableSearch'
 
 const userStatusTagType: Record<UserStatus, string> = {
   [UserStatus.Active]: 'success',
   [UserStatus.Inactive]: 'default'
 }
-
-
 
 const UserTable: React.FC = () => {
 
@@ -122,8 +121,8 @@ const UserTable: React.FC = () => {
   return (
     <TablePage
       title="用户列表"
+      search={<UserTableSearch />}
       actions={Actions}>
-        <input />
       <Table<UserItem> columns={columns} dataSource={tableData} />
       <UserFormDrawer
         id={actionId}

@@ -10,11 +10,13 @@ import router from './router/index.ts'
 
 import store from '@store/index.ts'
 import { Provider } from 'react-redux'
-
+import { AliveScope } from 'react-activation'
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <AliveScope>
+      <RouterProvider router={router} />
+    </AliveScope>
   </Provider>
   // </StrictMode>
 )

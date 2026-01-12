@@ -8,12 +8,27 @@ import { userTableDataApi, deleteUserApi } from '../../../api/modules/systemMana
 import type { UserItem } from '../../../api/modules/systemManage/user'
 import { UserStatus, displayName_userStatus } from '../../dictionary/index'
 import UserFormDrawer from "./UserFormDrawer"
-import UserTableSearch from './UserTableSearch'
+import TableSearch, { FormType, type FormItemConfig } from '@components/table/TableSearch'
 
 const userStatusTagType: Record<UserStatus, string> = {
   [UserStatus.Active]: 'success',
   [UserStatus.Inactive]: 'default'
 }
+
+
+const searchFormList: FormItemConfig[] = [
+  { type: FormType.INPUT, label: '用户名', prop: 'username' },
+  {
+    type: FormType.SELECT,
+    label: '状态',
+    prop: 'status',
+    options: [
+      { label: '启用', value: 1 },
+      { label: '禁用', value: 0 }
+    ]
+  }
+]
+
 
 const UserTable: React.FC = () => {
 
@@ -118,10 +133,17 @@ const UserTable: React.FC = () => {
     }
   }
 
+  const onSearch = (params: any) => {
+    console.log(params)
+  }
   return (
     <TablePage
       title="用户列表"
-      search={<UserTableSearch />}
+      search={
+        <TableSearch
+          formList={ searchFormList }
+          onSearch={ onSearch } />
+      }
       actions={Actions}>
       <Table<UserItem> columns={columns} dataSource={tableData} />
       <UserFormDrawer
